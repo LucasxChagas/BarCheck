@@ -1,21 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Appearance, StatusBar } from 'react-native';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import { NavegacaoPrincipal } from './src/navigations';
+import { HomeScreen } from './src/screens/home/index';
+
+const Dark = {
+  ...DefaultTheme,
+  roundness: 2,
+  myOwnProperty: true,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#000000',
+    primary: '#f8931f',
+    accent: '#f8931f',
+    text: 'rgba(255, 255, 255, 1)',
+    placeholder: 'rgba(201, 201, 201, 0.7)',
+    backdrop: 'rgba(0,0,0, 0.95)',
+
+  }
+};
+
+const Light = {
+  ...DefaultTheme,
+  roundness: 2,
+  myOwnProperty: true,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#ffffff',
+    primary: '#f8931f',
+    accent: '#c9c9c9',
+    text: 'rgba(0, 0, 0, 1)',
+    placeholder: 'rgba(48, 48, 48, 0.7)',
+    backdrop: 'rgba(255,255,255, 0.95)',
+
+
+  }
+};
+
+
+const ColorScheme = Appearance.getColorScheme();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider theme={ColorScheme == 'dark' ? Dark : Light} settings={{ icon: props => <AwesomeIcon {...props} />, }}>
+      <StatusBar barStyle={ColorScheme == 'dark' ? 'light-content' : 'dark-content'} backgroundColor="rgba(0,0,0,0)" />
+      <NavegacaoPrincipal />
+    </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
