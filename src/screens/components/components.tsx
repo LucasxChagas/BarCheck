@@ -69,7 +69,126 @@ export function LoginButtons(props: LoginButtonsProps) {
 }
 // /LoginButtons
 
+// NoActivity
+export interface NoActivityProps {
+    textColor?: string;
+    textSubColor?: string;
+    iconColor?: string;
+    buttonTextColor?: string;
+}
+
+export function NoActivity(props: NoActivityProps) {
+    return (
+        <View style={{ width: '100%', height: 300, justifyContent: 'center', alignItems: 'center' }}>
+            <Icon name='frown-o' size={50} color={props.iconColor} />
+            <Text style={[styles.textActivity, { color: props.textColor }]}>Você ainda não tem atividade</Text>
+            <Text style={[styles.textSubActivity, { color: props.textSubColor }]}>Retorne e experimente novas reservas!</Text>
+            <Button title=" CONFERIR " titleStyle={{ color: props.buttonTextColor }} buttonStyle={styles.buttonActivity} />
+        </View>
+    );
+
+}
+// /NoActivity
+
+
+// Header
+export interface Header {
+    text: string;
+    onPress?: any;
+
+}
+
+export function Header(props: Header) {
+    return (
+        <View style={styles.headerContainer}>
+            <View style={{ flexDirection: 'row' }}>
+                <Icon name='arrow-left' size={25} onPress={props.onPress} />
+                <Text style={{ fontWeight: 'bold', paddingLeft: 15, fontSize: 19 }}>{props.text}</Text>
+            </View>
+        </View>
+    );
+}
+
+
+export interface HeaderTwoProps {
+    text: string;
+    onPress?: any;
+
+}
+
+export function HeaderTwo(props: HeaderTwoProps) {
+    return (
+        <View style={styles.headerContainer}>
+            <View style={{ flexDirection: 'row' }}>
+                <Icon name='arrow-left' size={25} onPress={props.onPress} />
+                <Text style={{ fontWeight: 'bold', paddingLeft: 15, fontSize: 19 }}>{props.text}</Text>
+            </View>
+            <Text style={{ fontWeight: 'bold', paddingTop: 5 }}>SALVAR</Text>
+        </View>
+    );
+}
+
+export interface HeaderThreeProps {
+    text: string;
+    onPress?: any;
+
+}
+
+export function HeaderThree(props: HeaderThreeProps) {
+    return (
+        <View style={styles.headerContainer}>
+            <View style={{ flexDirection: 'row' }}>
+                <Text style={{ fontWeight: 'bold', paddingLeft: 15, fontSize: 19 }}>{props.text}</Text>
+            </View>
+        </View>
+    );
+}
+
+export interface HeaderFourProps {
+    text: string;
+    color?: string;
+    colorIcon?: string;
+
+}
+
+export function HeaderFour(props: HeaderFourProps) {
+    return (
+        <View style={styles.headerContainer}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <Text style={{ fontWeight: 'bold', paddingLeft: 15, fontSize: 19 }}>{props.text}</Text>
+            </View>
+            <Icon name='cogs' size={25} color={props.colorIcon} />
+        </View>
+    );
+}
+// /Header
+
+
 const styles = StyleSheet.create({
+
+    textActivity: {
+        fontWeight: 'bold',
+        fontSize: 15,
+        marginTop: 15,
+    },
+    textSubActivity: {
+        fontSize: 12,
+    },
+    buttonActivity: {
+        borderRadius: 8, marginTop: 15, backgroundColor: '#f8931f'
+    },
+
+    headerContainer: {
+        width: '100%',
+        height: 60,
+        backgroundColor: '#f7931e',
+        flexDirection: 'row',
+        padding: 15,
+        justifyContent: 'space-between'
+    },
+
+
+
     texto: {
         fontSize: 20,
     },
@@ -98,4 +217,6 @@ const styles = StyleSheet.create({
     label: {
         color: '#f7931e',
     },
+
+
 })

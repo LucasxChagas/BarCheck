@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Appearance, StatusBar } from 'react-native';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { NavegacaoPrincipal } from './src/navigations';
-import { HomeScreen } from './src/screens/home/index';
+import { HomeScreen } from './src/screens/atividade/index';
 
 const Dark = {
   ...DefaultTheme,
@@ -12,7 +12,7 @@ const Dark = {
   colors: {
     ...DefaultTheme.colors,
     background: '#000000',
-    primary: '#f8931f',
+    primary: '#f7931e',
     accent: '#f8931f',
     text: 'rgba(255, 255, 255, 1)',
     placeholder: 'rgba(201, 201, 201, 0.7)',
@@ -28,7 +28,7 @@ const Light = {
   colors: {
     ...DefaultTheme.colors,
     background: '#ffffff',
-    primary: '#f8931f',
+    primary: '#f7931e',
     accent: '#c9c9c9',
     text: 'rgba(0, 0, 0, 1)',
     placeholder: 'rgba(48, 48, 48, 0.7)',
